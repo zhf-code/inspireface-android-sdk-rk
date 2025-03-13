@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.example.inspireface_example'
-    compileSdk 28
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.inspireface_example"
-        minSdk 21
-        targetSdk 28
+        minSdk 24
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 

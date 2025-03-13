@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace 'com.insightface.sdk.inspireface'
-    compileSdk 28
+    compileSdk 34
 
     defaultConfig {
-        minSdk 21
+        minSdk 24
         versionCode 1
         versionName "1.1.13"
 
