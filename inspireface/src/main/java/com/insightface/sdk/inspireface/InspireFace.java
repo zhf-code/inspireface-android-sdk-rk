@@ -24,6 +24,8 @@ import com.insightface.sdk.inspireface.base.SimilarityConverterConfig;
 import com.insightface.sdk.inspireface.base.TypeDefine;
 import com.insightface.sdk.inspireface.utils.SDKUtils;
 
+import java.io.File;
+
 public class InspireFace extends TypeDefine {
     static {
         System.loadLibrary("InspireFace");
@@ -35,10 +37,13 @@ public class InspireFace extends TypeDefine {
      * @return resource file path
      */
     public static String copyResourceFileToApplicationDir(Context context) {
-        String dest = context.getExternalFilesDir(null).getAbsolutePath() + "/" + INSPIREFACE_IN_ASSETS_FOLDER_NAME;
-        String resourceFolderPath = context.getExternalFilesDir(null).getAbsolutePath() + "/" + INSPIREFACE_IN_ASSETS_FOLDER_NAME;
+        File externalFilesDir = context.getExternalFilesDir(null);
+        File resourceDir = new File(externalFilesDir, INSPIREFACE_IN_ASSETS_FOLDER_NAME);
+
+        String resourceFolderPath = resourceDir.getAbsolutePath();
         SDKUtils.copyFilesFromAssets(context, INSPIREFACE_IN_ASSETS_FOLDER_NAME, resourceFolderPath);
-        return dest;
+
+        return resourceFolderPath;
     }
 
     /**
@@ -49,7 +54,8 @@ public class InspireFace extends TypeDefine {
      */
     public static Boolean GlobalLaunch(Context context, String modelName) {
         String folder = InspireFace.copyResourceFileToApplicationDir(context);
-        return InspireFace.GlobalLaunch(folder + "/" + modelName);
+        File modelFile = new File(folder, modelName);
+        return InspireFace.GlobalLaunch(modelFile.getAbsolutePath());
     }
 
     /**
@@ -112,7 +118,7 @@ public class InspireFace extends TypeDefine {
 
     /**
      * Global launch
-     * @param resourcePath
+     * @param resourcePath Path to the model pack file
      * @return true if success, false otherwise
      */
     public static native boolean GlobalLaunch(String resourcePath);
