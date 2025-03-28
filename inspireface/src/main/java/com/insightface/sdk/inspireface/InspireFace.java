@@ -104,7 +104,7 @@ public class InspireFace extends TypeDefine {
      * @param enableInteractionLiveness Flag to enable or disable interaction liveness detection
      * @return CustomParameter object
      */
-    public static CustomParameter CreateCustomParameter(boolean enableRecognition, boolean enableLiveness, boolean enableIrLiveness, boolean enableMaskDetect, boolean enableFaceQuality, boolean enableFaceAttribute, boolean enableInteractionLiveness) {
+    public static CustomParameter CreateCustomParameter(boolean enableRecognition, boolean enableLiveness, boolean enableIrLiveness, boolean enableMaskDetect, boolean enableFaceQuality, boolean enableFaceAttribute, boolean enableInteractionLiveness, boolean enable_detect_mode_landmark) {
         CustomParameter parameter = new CustomParameter();
         parameter.enableRecognition = enableRecognition ? 1 : 0;
         parameter.enableLiveness = enableLiveness ? 1 : 0;
@@ -113,6 +113,7 @@ public class InspireFace extends TypeDefine {
         parameter.enableFaceQuality = enableFaceQuality ? 1 : 0;
         parameter.enableFaceAttribute = enableFaceAttribute ? 1 : 0;
         parameter.enableInteractionLiveness = enableInteractionLiveness ? 1 : 0;
+        parameter.enableDetectModeLandmark = enable_detect_mode_landmark ? 1: 0;
         return parameter;
     }
 
