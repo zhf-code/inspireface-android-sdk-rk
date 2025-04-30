@@ -9,7 +9,7 @@ public class CustomParameter {
     public int enableFaceQuality = 0;               // Enable face quality detection
     public int enableFaceAttribute = 0;             // Enable face attribute detection
     public int enableInteractionLiveness = 0;       // Enable interaction liveness detection
-    public int enableDetectModeLandmark = 0;         // Enable landmark detection in always detect mode
+    public int enableFacePose = 0;                  // Enable face pose detection
 
     public CustomParameter() {}
 
@@ -94,12 +94,12 @@ public class CustomParameter {
     }
 
     /**
-     * Enable landmark detection in always detect mode
+     * Enable face pose detection
      * @param enable true if enable, false otherwise
      * @return CustomParameter object
      */  
-    public CustomParameter enableDetectModeLandmark(boolean enable) {
-        this.enableDetectModeLandmark = enable ? 1 : 0;
+    public CustomParameter enableFacePose(boolean enable) {
+        this.enableFacePose = enable ? 1 : 0;
         return this;
     }   
 }

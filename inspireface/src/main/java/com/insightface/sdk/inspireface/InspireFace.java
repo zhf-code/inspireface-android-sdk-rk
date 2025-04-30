@@ -113,7 +113,7 @@ public class InspireFace extends TypeDefine {
         parameter.enableFaceQuality = enableFaceQuality ? 1 : 0;
         parameter.enableFaceAttribute = enableFaceAttribute ? 1 : 0;
         parameter.enableInteractionLiveness = enableInteractionLiveness ? 1 : 0;
-        parameter.enableDetectModeLandmark = enable_detect_mode_landmark ? 1: 0;
+        parameter.enableFacePose = enable_detect_mode_landmark ? 1: 0;
         return parameter;
     }
 
