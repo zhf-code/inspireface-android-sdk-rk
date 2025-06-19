@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import com.insightface.sdk.inspireface.base.CustomParameter;
 import com.insightface.sdk.inspireface.base.FaceAttributeResult;
 import com.insightface.sdk.inspireface.base.FaceBasicToken;
+import com.insightface.sdk.inspireface.base.FaceEmotionResult;
 import com.insightface.sdk.inspireface.base.FaceFeature;
 import com.insightface.sdk.inspireface.base.FaceFeatureIdentity;
 import com.insightface.sdk.inspireface.base.FaceInteractionState;
@@ -420,6 +421,13 @@ public class InspireFace extends TypeDefine {
      * @return FaceAttributeResult object
      */
     public static native FaceAttributeResult GetFaceAttributeResult(Session session);
+
+    /**
+     * Get FaceEmotionResult
+     * @param session Session object
+     * @return FaceEmotionResult object
+     */
+    public static native FaceEmotionResult GetFaceEmotionResult(Session session);
 
     /**
      * Query InspireFace version

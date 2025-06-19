@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.insightface.sdk.inspireface.InspireFace;
 import com.insightface.sdk.inspireface.base.CustomParameter;
 import com.insightface.sdk.inspireface.base.FaceAttributeResult;
+import com.insightface.sdk.inspireface.base.FaceEmotionResult;
 import com.insightface.sdk.inspireface.base.FaceFeature;
 import com.insightface.sdk.inspireface.base.FaceFeatureIdentity;
 import com.insightface.sdk.inspireface.base.FaceInteractionState;
@@ -66,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
                 .enableFaceAttribute(true)
                 .enableInteractionLiveness(true)
                 .enableLiveness(true)
-                .enableMaskDetect(true);
+                .enableMaskDetect(true)
+                .enableFaceEmotion(true);
         Session session = InspireFace.CreateSession(parameter, InspireFace.DETECT_MODE_ALWAYS_DETECT, 10, -1, -1);
         Log.i(TAG, "session handle: " + session.handle);
         InspireFace.SetTrackPreviewSize(session, 320);
@@ -148,7 +150,8 @@ public class MainActivity extends AppCompatActivity {
                     .enableLiveness(true)
                     .enableMaskDetect(true)
                     .enableFaceAttribute(true)
-                    .enableInteractionLiveness(true);
+                    .enableInteractionLiveness(true)
+                    .enableFaceEmotion(true);
             boolean succPipe = InspireFace.MultipleFacePipelineProcess(session, stream, multipleFaceData, pipelineNeedParam);
             if (succPipe) {
                 Log.i(TAG, "Exec pipeline success");
@@ -171,6 +174,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "Race: " + faceAttributeResult.race[0]);
                 Log.i(TAG, "Gender: " + faceAttributeResult.gender[0]);
                 Log.i(TAG, "Age bracket: " + faceAttributeResult.ageBracket[0]);
+                FaceEmotionResult faceEmotionResult = InspireFace.GetFaceEmotionResult(session);
+                Log.i(TAG, "Face emotion: " + faceEmotionResult.emotion[0]);
             } else {
 
                 Log.e(TAG, "Exec pipeline fail");

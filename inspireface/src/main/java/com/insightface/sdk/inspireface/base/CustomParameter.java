@@ -10,6 +10,7 @@ public class CustomParameter {
     public int enableFaceAttribute = 0;             // Enable face attribute detection
     public int enableInteractionLiveness = 0;       // Enable interaction liveness detection
     public int enableFacePose = 0;                  // Enable face pose detection
+    public int enableFaceEmotion = 0;                   // Enable face emotion prediction
 
     public CustomParameter() {}
 
@@ -84,16 +85,6 @@ public class CustomParameter {
     }
 
     /**
-     * Set enable interaction liveness detection
-     * @param enable true if enable, false otherwise
-     * @return CustomParameter object
-     */  
-    public CustomParameter setEnableInteractionLiveness(int enable) {
-        this.enableInteractionLiveness = enable;
-        return this;
-    }
-
-    /**
      * Enable face pose detection
      * @param enable true if enable, false otherwise
      * @return CustomParameter object
@@ -101,5 +92,17 @@ public class CustomParameter {
     public CustomParameter enableFacePose(boolean enable) {
         this.enableFacePose = enable ? 1 : 0;
         return this;
-    }   
+    }
+
+    /**
+     * Enable face emotion prediction
+     * @param enable true if enable, false otherwise
+     * @return CustomParameter object
+     */
+    public CustomParameter enableFaceEmotion(boolean enable) {
+        this.enableFaceEmotion = enable ? 1 : 0;
+        return this;
+    }
+
+
 }
